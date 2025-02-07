@@ -9,7 +9,9 @@ const Header = () => {
       <li className="mr-2">
         <Link href="/">Home</Link>
       </li>
-      <div>Environment : {process.env.API_DOMAIN}</div>
+      <div>
+        Environment : {process.env.NODE_ENV} = {process.env.API_DOMAIN}
+      </div>
     </div>
   );
 };

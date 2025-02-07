@@ -28,7 +28,7 @@ const NewUserForm = () => {
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    let apiUrl = `${process.env.API_DOMAIN}/users`;
+    let apiUrl = `${process.env.API_DOMAIN}/api/users`;
     const body = JSON.stringify(userInfo);
     axios
       .post(apiUrl, body)
