@@ -28,9 +28,10 @@ const NewUserForm = () => {
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    let apiUrl = `${process.env.API_DOMAIN}/users`;
     const body = JSON.stringify(userInfo);
     axios
-      .post("http://localhost:3000/api/users", body)
+      .post(apiUrl, body)
       .then((res) => {
         if (res.status === 200 && res?.data?.message === "User is created") {
           alert("User is created successfully");

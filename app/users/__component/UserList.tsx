@@ -14,8 +14,9 @@ const UserList = () => {
   const [error, setError] = useState<string>();
 
   const fetchUsers = () => {
+    let apiUrl = `${process.env.API_DOMAIN}/users`;
     axios
-      .get("http://localhost:3000/api/users")
+      .get(apiUrl)
       .then((res) => {
         setUsers(res.data);
       })
@@ -26,9 +27,9 @@ const UserList = () => {
 
   //
   const deleteUser = (uId: number) => {
-    let url = `http://localhost:3000/api/users?userId=${uId}`;
+    let apiUrl = `${process.env.API_DOMAIN}/users${uId}`;
     axios
-      .delete(url)
+      .delete(apiUrl)
       .then((res) => {
         if (res.status === 200) {
           alert(res.data.message);
