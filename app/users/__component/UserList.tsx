@@ -14,7 +14,7 @@ const UserList = () => {
   const [error, setError] = useState<string>();
 
   const fetchUsers = () => {
-    let apiUrl = `${process.env.API_DOMAIN}/users`;
+    let apiUrl = process.env.NEXT_PUBLIC_API_URL + "/users";
     axios
       .get(apiUrl)
       .then((res) => {
@@ -27,7 +27,7 @@ const UserList = () => {
 
   //
   const deleteUser = (uId: number) => {
-    let apiUrl = `${process.env.API_DOMAIN}/users${uId}`;
+    let apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/users${uId}`;
     axios
       .delete(apiUrl)
       .then((res) => {
@@ -41,6 +41,7 @@ const UserList = () => {
   };
 
   useEffect(() => {
+    console.log("domain", process.env.NEXT_PUBLIC_API_URL);
     fetchUsers();
   }, []);
   return (
