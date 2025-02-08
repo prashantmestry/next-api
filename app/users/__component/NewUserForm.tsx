@@ -87,13 +87,13 @@ const NewUserForm = () => {
           </div>
           <div>
             <button
-              className="bg-slate-300 border-slate-300 h-[40px] px-3 py-2 mr-4"
+              className="text-sm bg-slate-300 hover:bg-slate-400 rounded-sm px-4 py-1 mr-4  font-medium"
               type="submit"
             >
               Submit
             </button>
             <button
-              className="border border-slate-300 h-[40px] px-3"
+              className="text-sm border hover:bg-slate-300 rounded-sm px-4 py-1 font-medium"
               type="button"
               onClick={clearHandler}
             >

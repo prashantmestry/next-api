@@ -1,30 +1,29 @@
 "use client";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-
+import Image from "next/image";
+import docker_logo from "../../public/images/docker_logo.svg";
+//
 const Header = () => {
   const { setTheme } = useTheme();
 
   return (
-    <div className="flex flex-row justify-between list-none p-2 bg-slate-300">
-      <div className="flex">
-        <li className="mr-2">
-          <Link href="/users">User Detail</Link>
+    <div className="flex flex-row justify-between list-none p-2 bg-slate-300 ">
+      <div className="flex items-center">
+        <li className="mr-8">
+          <Image src={docker_logo} alt="Docker logo" width={50} />
         </li>
         <li className="mr-2">
           <Link href="/">Home</Link>
         </li>
-        <div>
-          Environment : {process.env.NODE_ENV} = {process.env.API_DOMAIN}
-        </div>
       </div>
-      <div>
-        <span className="mr-2 cursor-pointer " onClick={() => setTheme("dark")}>
+      <div className="flex items-center">
+        <div className="mr-2 cursor-pointer " onClick={() => setTheme("dark")}>
           Dark
-        </span>
-        <span className="mr-2 cursor-pointer" onClick={() => setTheme("light")}>
+        </div>
+        <div className="mr-2 cursor-pointer" onClick={() => setTheme("light")}>
           Light
-        </span>
+        </div>
       </div>
     </div>
   );

@@ -10,9 +10,13 @@ export const metadata: Metadata = {
 
 const UserDetails = () => {
   return (
-    <div className="flex justify-between ">
-      <UserList />
-      <NewUserForm />
+    <div className="flex flex-row flex-wrap">
+      <div className="basis-[40%]">
+        <NewUserForm />
+      </div>
+      <div className="basis-[60%]">
+        <UserList />
+      </div>
     </div>
   );
 };
