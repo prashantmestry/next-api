@@ -47,7 +47,7 @@ const UserList = () => {
   }, []);
   //
   return (
-    <div className="flex flex-1 flex-col ">
+    <div className="flex flex-1 flex-col">
       <h3 className="text-lg mb-2">User List</h3>
       {(users || []).map((user: UserProps) => {
         return (

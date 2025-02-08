@@ -15,7 +15,7 @@ const dummyUser = {
   password: "",
 };
 
-const NewUserForm = () => {
+const UserForm = () => {
   const [userInfo, setUserInfo] = useState<UserT>(dummyUser);
 
   const updateInfo = (e: ChangeEvent<HTMLInputElement>) => {
@@ -51,16 +51,16 @@ const NewUserForm = () => {
   };
 
   return (
-    <div className="flex flex-1 flex-col">
+    <div className="flex  flex-col text-center">
       <h3 className="text-lg mb-2">Create New User</h3>
-      <div className="flex">
+      <div className="flex justify-center">
         <form onSubmit={submitHandler}>
           <div className="mb-3">
             <input
               type="text"
               name="email"
               placeholder="Enter Email"
-              className="p-2 w-[400px]"
+              className="p-2 w-[400px] border"
               value={userInfo.email}
               onChange={updateInfo}
             />
@@ -70,7 +70,7 @@ const NewUserForm = () => {
               type="text"
               name="username"
               placeholder="Enter User name"
-              className="p-2 w-[400px]"
+              className="p-2 w-[400px] border"
               value={userInfo.username}
               onChange={updateInfo}
             />
@@ -80,12 +80,12 @@ const NewUserForm = () => {
               type="password"
               name="password"
               placeholder="Enter Password"
-              className="p-2 w-[400px]"
+              className="p-2 w-[400px] border"
               value={userInfo.password}
               onChange={updateInfo}
             />
           </div>
-          <div>
+          <div className="mt-4">
             <button
               className="text-sm bg-slate-300 hover:bg-slate-400 rounded-sm px-4 py-1 mr-4  font-medium"
               type="submit"
@@ -106,4 +106,4 @@ const NewUserForm = () => {
   );
 };
 
-export default NewUserForm;
+export default UserForm;

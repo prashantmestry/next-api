@@ -8,15 +8,29 @@ const Header = () => {
   const { setTheme } = useTheme();
 
   return (
-    <div className="flex flex-row justify-between list-none p-2 bg-slate-300 ">
-      <div className="flex items-center">
+    <div className="flex flex-row justify-between list-none p-2 border-b">
+      <ul className="flex items-center">
         <li className="mr-8">
-          <Image src={docker_logo} alt="Docker logo" width={50} />
+          <Link href="/">
+            <Image src={docker_logo} alt="Docker logo" width={50} />
+          </Link>
         </li>
-        <li className="mr-2">
-          <Link href="/">Home</Link>
+        <li className="mr-4 font-semibold  hover:text-gray-950">
+          <Link href="/dashboard">Dashboard</Link>
         </li>
-      </div>
+        <li className="mr-4 font-semibold  hover:text-gray-950">
+          <Link href="/users">Users</Link>
+        </li>
+        <li className="mr-4 font-semibold  hover:text-gray-950">
+          <Link href="/gallery">Gallery</Link>
+        </li>
+        <li className="mr-4 font-semibold  hover:text-gray-950">
+          <Link href="/charts">Charts</Link>
+        </li>
+        <li className="mr-4 font-semibold  hover:text-gray-950">
+          <Link href="/shopping">Shopping</Link>
+        </li>
+      </ul>
       <div className="flex items-center">
         <div className="mr-2 cursor-pointer " onClick={() => setTheme("dark")}>
           Dark
