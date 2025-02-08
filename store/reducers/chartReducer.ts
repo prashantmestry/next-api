@@ -1,12 +1,24 @@
-const initState = {
+import { createSlice } from "@reduxjs/toolkit";
+
+type StateType = {
+  counter: number;
+};
+
+const initState: StateType = {
   counter: 1,
 };
 
-const reduer = (state = initState, action: any) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
+export const chartSlice = createSlice({
+  name: "Slice",
+  initialState: initState,
+  reducers: {
+    incrementCounter: (state, action) => {
+      return {
+        counter: state.counter + 1,
+      };
+    },
+  },
+});
 
-export default reduer;
+export const { incrementCounter } = chartSlice.actions;
+export default chartSlice.reducer;
