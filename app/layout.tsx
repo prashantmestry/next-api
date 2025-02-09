@@ -27,7 +27,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Header />
-            <main className="p-2 ">{children}</main>
+            <main className="p-2 mt-[70px]">{children}</main>
             <Footer />
           </ThemeProvider>
         </StoreProvider>
