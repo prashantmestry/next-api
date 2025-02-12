@@ -3,7 +3,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/theme-provider";
 import Header from "./__component/Header";
 import Footer from "./__component/Footer";
-import { Provider } from "react-redux";
 import StoreProvider from "@/store/StoreProvider";
 //
 export const metadata: Metadata = {
