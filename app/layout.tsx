@@ -26,9 +26,17 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Header />
-            <main className="p-2 mt-[70px]">{children}</main>
-            <Footer />
+            <div className="flex flex-col  h-screen bg-red-200 justify-between">
+              <div className="bg-slate-300 dark:bg-gray-800 fixed top-0 z-20 w-full">
+                <Header />
+              </div>
+              <div className="bg-slate-100 dark:bg-gray-700 flex-grow p-4 mt-16 ">
+                {children}
+              </div>
+              <div className="bg-slate-200 dark:bg-gray-800">
+                <Footer />
+              </div>
+            </div>
           </ThemeProvider>
         </StoreProvider>
       </body>

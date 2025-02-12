@@ -14,12 +14,12 @@ const Posts = async () => {
   //   const [open, setOpen] = useState(false);
   //
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap gap-4">
       {postsList.map((item: any) => {
         return (
           <div
             key={item.id}
-            className="border py-2 px-2 mx-2 my-2 min-w-[400px] w-[420px] cursor-pointer hover:shadow-inner"
+            className="border bg-slate-50 dark:border-zinc-600  dark:bg-zinc-800 p-2 w-1/4 cursor-pointer flex-grow"
           >
             <h2 className="font-semibold mb-2">
               {item.id} - {item.title}
