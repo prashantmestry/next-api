@@ -58,7 +58,7 @@ const Header = () => {
           return (
             <li
               key={item.name}
-              className="mr-4 font-semibold  hover:text-gray-950"
+              className="mr-4 font-semibold  hover:text-amber-600"
             >
               <Link href={`${item.link}`}>{item.name}</Link>
             </li>
@@ -78,6 +78,10 @@ const Header = () => {
             Theme
           </span>
         </label>
+
+        <div className="ml-6">
+          <Link href="/login">Login</Link>
+        </div>
       </div>
     </div>
   );

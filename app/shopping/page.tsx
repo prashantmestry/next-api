@@ -20,7 +20,7 @@ type ActionType = {
 
 //
 
-let initialState = {
+let initialState: InitStateType = {
   productList: [
     {
       pId: 1,
@@ -39,7 +39,10 @@ let initialState = {
 };
 
 // reducer function
-export const shoppingReducer = (state: InitStateType, action: ActionType) => {
+export const shoppingReducer = (
+  state: InitStateType,
+  action: ActionType
+): InitStateType => {
   switch (action.type) {
     case "ADD_P":
       if (

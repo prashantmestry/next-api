@@ -13,14 +13,14 @@ interface ResTypes {
   body: string;
 }
 
-const GetComments = ({ postId }: { postId: string }) => {
+const GetComments = ({ postId }: { postId: number | string }) => {
   const [flag, setFlag] = useState(false);
   const [comments, setComments] = useState([]);
   //
   if (!postId) {
     return notFound();
   }
-  async function getComments(section: string) {
+  async function getComments(section: string | number) {
     const postComments = await axios
       .get(`https://jsonplaceholder.typicode.com/posts/${section}/comments`)
       .then((res) => {
