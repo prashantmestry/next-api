@@ -6,7 +6,6 @@ import { GrBarChart } from "react-icons/gr";
 import { GrDatabase } from "react-icons/gr";
 import { GrCycle } from "react-icons/gr";
 import { GrCar } from "react-icons/gr";
-import { usePathname } from "next/navigation";
 
 const dashboardLinks = [
   {
@@ -64,9 +63,16 @@ const dashboardLinks = [
     id: 9,
   },
 ];
-const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
-  const path = usePathname();
 
+type Params = Promise<{ slug: number }>;
+
+const DashboardLayout = ({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Params;
+}) => {
   // get Icon component.
   const getIcons = (ico: string) => {
     switch (ico) {
