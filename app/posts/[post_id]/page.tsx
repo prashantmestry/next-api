@@ -1,6 +1,3 @@
-import React from "react";
-//
-
 const Comments = async () => {
   return (
     <div className="flex flex-wrap">

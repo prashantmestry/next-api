@@ -1,6 +1,4 @@
 "use client";
-
-import React from "react";
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { incrementCounter } from "@/store/reducers/chartReducer";
 //

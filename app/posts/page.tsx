@@ -1,6 +1,3 @@
-import React from "react";
-//
-
 async function getData() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   if (!res.ok) {
