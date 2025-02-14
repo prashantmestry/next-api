@@ -1,0 +1,4 @@
+{
+  "watch": ["tests/**/*.ts", "tests/**/*.js"],
+  "exec": "npx playwright test"
+}
