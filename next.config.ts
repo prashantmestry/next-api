@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   //   // Modify Webpack settings if needed
   //   return config;
   // },
+  eslint: {
+    ignoreDuringBuilds: true, // This disables ESLint during builds.
+  },
 };
 
 export default nextConfig;

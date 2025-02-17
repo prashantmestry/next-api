@@ -1,107 +1,47 @@
 "use client";
 import React, { useReducer } from "react";
-//
-type ProductType = {
-  pId: number;
-  pName: string;
-  pPrice: number;
-  pQuantity: number | null;
-};
 
-type InitStateType = {
-  productList: ProductType[];
-  selectedProduct: ProductType[];
-};
+// Define the state type
+interface CounterState {
+  count: number;
+}
 
-type ActionType = {
-  type: "ADD_P" | "DELETE_P";
-  payload: ProductType;
-};
+// Define the action types
+type CounterAction =
+  | { type: "increment" }
+  | { type: "decrement" }
+  | { type: "reset" };
 
-//
-
-let initialState: InitStateType = {
-  productList: [
-    {
-      pId: 1,
-      pName: "Cycle",
-      pPrice: 2000,
-      pQuantity: 0,
-    },
-    {
-      pId: 2,
-      pName: "Mixer",
-      pPrice: 1400,
-      pQuantity: 0,
-    },
-  ],
-  selectedProduct: [],
-};
-
-// reducer function
-export const shoppingReducer = (
-  state: InitStateType,
-  action: ActionType
-): InitStateType => {
+// Reducer function
+const counterReducer = (
+  state: CounterState,
+  action: CounterAction
+): CounterState => {
   switch (action.type) {
-    case "ADD_P":
-      if (
-        !state.selectedProduct.find((item) => item.pId === action.payload.pId) // product is not already added
-      ) {
-        return {
-          ...state,
-          selectedProduct: [...state.selectedProduct, { ...action?.payload }],
-        };
-      }
-      return state;
-    case "DELETE_P":
-      return {
-        ...state,
-        selectedProduct: state.selectedProduct.filter(
-          (item) => item.pId !== action.payload.pId
-        ),
-      };
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    case "reset":
+      return { count: 0 };
     default:
-      return state;
+      return state; // This should never be hit because of the strict action types
   }
 };
 
-// component
-const Shopping: React.FC = () => {
-  const [state, dispatch] = useReducer(shoppingReducer, initialState);
+// Define initial state
+const initialState: CounterState = { count: 0 };
 
-  // Add product in cart.
-  const addProduct = (obj: ProductType) => {
-    console.log(obj);
-    dispatch({
-      type: "ADD_P",
-      payload: obj,
-    });
-  };
+const Shopping: React.FC = () => {
+  // Use useReducer with typed state and action
+  const [state, dispatch] = useReducer(counterReducer, initialState);
+
   return (
     <div>
-      <div className="flex justify-between">
-        <div className="flex flex-col">
-          <h3 className="font-extrabold mb-4">Select Products</h3>
-          {(state.productList || []).map((item: ProductType) => {
-            return (
-              <div
-                className="cursor-pointer"
-                key={item.pId}
-                onClick={() => addProduct(item)}
-              >
-                {item.pName} - {item.pPrice}
-              </div>
-            );
-          })}
-        </div>
-        <div className="flex flex-col bottom-1 ">
-          <h3 className="font-extrabold mb-4">Products in Carts</h3>
-          {(state.selectedProduct || []).map((item: ProductType) => {
-            return <div key={item.pId}>{item.pName}</div>;
-          })}
-        </div>
-      </div>
+      <h1>Count: {state.count}</h1>
+      <button onClick={() => dispatch({ type: "increment" })}>Increment</button>
+      <button onClick={() => dispatch({ type: "decrement" })}>Decrement</button>
+      <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
     </div>
   );
 };
