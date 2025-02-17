@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 import GetComments from "./GetComments";
 //
 interface PostProps {

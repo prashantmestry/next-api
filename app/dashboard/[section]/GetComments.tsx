@@ -1,8 +1,7 @@
 "use client";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { notFound } from "next/navigation";
-import { useEffect, useState } from "react";
-
 import { IoEye } from "react-icons/io5";
 import { IoEyeOffSharp } from "react-icons/io5";
 
@@ -14,26 +13,29 @@ interface ResTypes {
 }
 
 const GetComments = ({ postId }: { postId: number | string }) => {
+  //
   const [flag, setFlag] = useState(false);
   const [comments, setComments] = useState([]);
   //
-  if (!postId) {
-    return notFound();
-  }
-  async function getComments(section: string | number) {
-    const postComments = await axios
-      .get(`https://jsonplaceholder.typicode.com/posts/${section}/comments`)
-      .then((res) => {
-        setComments(res.data);
-      });
-    return postComments;
-  }
-
   useEffect(() => {
     if (flag && comments.length === 0) {
       getComments(postId);
     }
-  }, [flag]);
+  }, [flag, comments, postId]);
+
+  if (!postId) {
+    return notFound();
+  }
+
+  async function getComments(section: string | number) {
+    const postComments = await axios
+      .get(`https://jsonplaceholder.typicode.com/posts/${section}/comments`)
+      .then((res) => {
+        console.log("test console");
+        setComments(res.data);
+      });
+    return postComments;
+  }
 
   return (
     <div>
