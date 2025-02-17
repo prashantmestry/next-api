@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import NavHead from "../__component/NavHead";
-import Footer from "../__component/Footer";
+import NavHead from "../AComponent/NavHead";
+import Footer from "../AComponent/Footer";
 
 //
 describe("Header test", () => {

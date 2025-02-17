@@ -81,7 +81,9 @@ const Header = () => {
         </label>
 
         <div className="ml-6">
-          <Link href="/login">Login</Link>
+          <Link href="/login">Login</Link>&nbsp;
+          <Link href="/profile">Profile</Link>&nbsp;
+          <Link href="/register">Register</Link>&nbsp;
         </div>
       </div>
     </div>

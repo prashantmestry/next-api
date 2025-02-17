@@ -1,4 +1,3 @@
-import axios from "axios";
 import { notFound } from "next/navigation";
 import React from "react";
 import GetComments from "./GetComments";
@@ -43,14 +42,16 @@ const DashPage = async ({ params }: { params: Params }) => {
   }
 
   return (
-    <div>
-      <div className="text-blue-700 mb-2 text-md uppercase">
-        {`Post ${section} ${post.title}`}
-      </div>
-      <div>{post.body}</div>
+    <>
+      <div>
+        <div className="text-blue-700 mb-2 text-md uppercase">
+          {`Post ${section} ${post.title}`}
+        </div>
+        <div>{post.body}</div>
 
-      <GetComments postId={section} />
-    </div>
+        <GetComments postId={section} />
+      </div>
+    </>
   );
 };
 
